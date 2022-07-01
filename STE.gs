@@ -58,6 +58,7 @@ commands["m"]["run"] = function()
 end function
 
 commands["c"] = {"name":"c", "desc":"Clear a line."}
+commands["c"]["run"] = function()
     input = user_input("[Number]\n>")
     lineNumber = input.to_int
     if typeof(lineNumber) != "number" then return user_input("Invalid line number.", false ,true)
@@ -66,7 +67,7 @@ commands["c"] = {"name":"c", "desc":"Clear a line."}
     globals.lines[lineNumber - 1] = ""
     globals.text = lines.join(char(10))
     return globals.text
-commands["c"]["run"] = function()
+end function
 
 commands["r"] = {"name":"r", "desc":"Remove a line."}
 commands["r"]["run"] = function()
